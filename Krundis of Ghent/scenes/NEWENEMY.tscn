@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxkl4lulddd2d"]
+
+[ext_resource type="Script" path="res://scenes/NEWENEMY.gd" id="1_fckg2"]
+[ext_resource type="Texture2D" uid="uid://cl8ugedqvrhtu" path="res://assets/A lil enemy.png" id="1_ys556"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6xr0"]
+atlas = ExtResource("1_ys556")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhv1b"]
+atlas = ExtResource("1_ys556")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8igfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6xr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhv1b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ea3b"]
+size = Vector2(73, 78)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+scale = Vector2(0.286277, 0.28752)
+script = ExtResource("1_fckg2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(44.25, 39.25)
+scale = Vector2(5.65625, 5.28125)
+sprite_frames = SubResource("SpriteFrames_8igfh")
+autoplay = "default"
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(43.5, 45)
+shape = SubResource("RectangleShape2D_6ea3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(43.5, 45)
+shape = SubResource("RectangleShape2D_6ea3b")
+one_way_collision_margin = 0.0
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_area_2d_area_entered"]

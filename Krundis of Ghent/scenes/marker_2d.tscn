@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bciqqnj742kkc"]
+
+[ext_resource type="Script" path="res://scripts/Marker2D.gd" id="1_qw6c8"]
+[ext_resource type="Texture2D" uid="uid://coib4pem8ne1v" path="res://assets/fireball brisket.png" id="2_llsla"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_282y2"]
+atlas = ExtResource("2_llsla")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3rfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_282y2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Marker2D" type="Marker2D"]
+script = ExtResource("1_qw6c8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s3rfj")
