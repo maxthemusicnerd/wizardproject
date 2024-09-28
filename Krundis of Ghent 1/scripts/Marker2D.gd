@@ -2,7 +2,7 @@ extends Marker2D
 
 
 # Called when the node enters the scene tree for the first time.
-@onready var playernode = get_node("res://scripts/Player.gd")
+
 func _ready():
 	pass
 
