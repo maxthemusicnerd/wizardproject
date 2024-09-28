@@ -4,7 +4,12 @@ extends CharacterBody2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-var dog = "hello"
+func _ready():
+	var marker = preload("res://scenes/marker_2d.tscn")
+	var marker_make = marker.instantiate()
+	owner.add_child.call_deferred(marker_make)
+	var marker_pos_x = position.x + 30
+	marker_make.global_position = Vector2(marker_pos_x, position.y)
 
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
