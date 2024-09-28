@@ -194,7 +194,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2is8x")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot_fire R",
 "speed": 10.0
 }]
@@ -209,11 +209,12 @@ script = ExtResource("1_wsxgx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_6ho1a")
-animation = &"run R"
+animation = &"shoot_fire R"
 autoplay = "default R"
-frame_progress = 0.00651808
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_mlgfn")
 one_way_collision_margin = 0.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
