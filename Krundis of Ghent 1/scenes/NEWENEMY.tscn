@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxkl4lulddd2d"]
 
 [ext_resource type="Script" path="res://scenes/NEWENEMY.gd" id="1_fckg2"]
-[ext_resource type="Texture2D" uid="uid://cl8ugedqvrhtu" path="res://assets/A lil enemy.png" id="1_ys556"]
+[ext_resource type="Texture2D" uid="uid://cl8ugedqvrhtu" path="res://assets/A lil enemy.png" id="2_8waln"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x6xr0"]
-atlas = ExtResource("1_ys556")
-region = Rect2(0, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdajl"]
+atlas = ExtResource("2_8waln")
+region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qhv1b"]
-atlas = ExtResource("1_ys556")
-region = Rect2(16, 48, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gjsq"]
+atlas = ExtResource("2_8waln")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8igfh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x6xr0")
+"texture": SubResource("AtlasTexture_bdajl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qhv1b")
+"texture": SubResource("AtlasTexture_4gjsq")
 }],
 "loop": true,
 "name": &"default",

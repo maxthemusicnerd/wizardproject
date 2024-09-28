@@ -1,18 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtbu50web344c"]
+[gd_scene load_steps=7 format=3 uid="uid://dtbu50web344c"]
 
 [ext_resource type="Script" path="res://CollisionShape2D.gd" id="1_e0857"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_isbxb"]
-[ext_resource type="Texture2D" uid="uid://cl8ugedqvrhtu" path="res://assets/A lil enemy.png" id="2_wivxo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l450k"]
 size = Vector2(70, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x6xr0"]
-atlas = ExtResource("2_wivxo")
 region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhv1b"]
-atlas = ExtResource("2_wivxo")
 region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j5b3i"]
