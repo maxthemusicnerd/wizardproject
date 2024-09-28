@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://6yovbx72r4ev"]
+[gd_scene load_steps=5 format=3 uid="uid://6yovbx72r4ev"]
 
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="1_5jsly"]
 [ext_resource type="PackedScene" uid="uid://c1odr1xowm2iu" path="res://scenes/player.tscn" id="1_fgclu"]
-[ext_resource type="PackedScene" uid="uid://bciqqnj742kkc" path="res://scenes/marker_2d.tscn" id="2_llax4"]
 [ext_resource type="PackedScene" uid="uid://bxkl4lulddd2d" path="res://scenes/NEWENEMY.tscn" id="4_te0dv"]
 [ext_resource type="PackedScene" uid="uid://cnl2xo0u02ede" path="res://scenes/spawner.tscn" id="5_1u1to"]
 
@@ -12,12 +11,10 @@ script = ExtResource("1_5jsly")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(273, 121)
 scale = Vector2(1.08756, 1.14906)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Player" parent="." instance=ExtResource("1_fgclu")]
 position = Vector2(149.198, 75.7262)
-
-[node name="Marker2D" parent="." instance=ExtResource("2_llax4")]
-position = Vector2(193, 77)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_te0dv")]
 position = Vector2(367, 65)

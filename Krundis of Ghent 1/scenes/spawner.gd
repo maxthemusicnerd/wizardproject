@@ -12,5 +12,8 @@ func _process(delta):
 	if time_passed >= 1:
 		var b = enemy.instantiate()
 		owner.add_child(b)
+		position.x = randi() % 1000
+		position.y = randi() % 1000
+		b.position = position
 		time_passed = 0
 
