@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bxkl4lulddd2d"]
 
-[ext_resource type="Script" path="res://scenes/NEWENEMY.gd" id="1_fckg2"]
+[ext_resource type="Script" path="res://NEWENEMY.gd" id="1_fckg2"]
 [ext_resource type="Texture2D" uid="uid://cl8ugedqvrhtu" path="res://assets/A lil enemy.png" id="2_8waln"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bdajl"]
@@ -29,6 +29,7 @@ animations = [{
 size = Vector2(73, 78)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 3
 scale = Vector2(0.286277, 0.28752)
 script = ExtResource("1_fckg2")
 
