@@ -12,13 +12,14 @@ func _ready():
 	var marker_pos_x = position.x + 30
 	marker_make.global_position = Vector2(marker_pos_x, position.y)
 
-#timer for various things 
-var timer = 0
+
 #on startup variables so they're global
 var input_direction = Vector2(0, 0)
 var x_vector = 0
 var y_vector = 0
 var is_moving = false
+
+var current_animation = ""
 
 var last_x_vec = 0
 var last_y_vec = 0
@@ -60,7 +61,7 @@ func shoot_fireball():
 	animated_sprite.play("default R")
 	animated_sprite.play("shoot_fire R")
 	mid_action = true
-
+	current_animation = "shoot_fire"
 
 
 
@@ -75,40 +76,54 @@ func animation_tree():
 
 
 func _on_animated_sprite_2d_animation_finished():
-	mid_action = false
+	if current_animation == "shoot_fire":
+		mid_action = false
+		return 2
+	if current_animation == "disappear":
+		current_animation = "reappear"
+		animated_sprite.play("reappear")
+		position.x += last_x_vec * 500
+		position.y += last_y_vec * 350
+		return 2
+	if current_animation == "reappear":
+		invincible = false
+		current_animation = "running"
+		mid_action = false
+		return 2
+
+func teleport():
+	invincible = true
+	mid_action = true
+	current_animation = "disappear"
+	animated_sprite.play("disappear")
+
+
+
+
+
 
 func on_hit():
 	pass
 
 #teleport logic
-func teleport():
-	invincible = true
-	animated_sprite.play("default R")
-	animated_sprite.play("disappear")
-	print("start")
-	
-
-func _on_disappear_animation_finished():
-	print("teleport")
-	animated_sprite.play("reappear")
-	position.x += last_x_vec * 300
-	position.y += last_y_vec * 300
 
 
 
-
-func _on_reappear_animation_finished():
-	print("finished")
-	invincible = false
 
 
 
 func _physics_process(delta):
-	timer += delta
 	if invincible == false:
 		get_input()
 		move_and_slide()
 		animation_tree()
+
+
+
+
+
+
+
 
 
 

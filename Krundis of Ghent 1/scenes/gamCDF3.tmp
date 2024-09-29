@@ -11,7 +11,7 @@ script = ExtResource("1_5jsly")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(273, 121)
 scale = Vector2(1.08756, 1.14906)
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_fgclu")]
 position = Vector2(149.198, 75.7262)

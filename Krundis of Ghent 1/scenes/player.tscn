@@ -239,7 +239,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"disappear",
-"speed": 14.0
+"speed": 25.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -262,7 +262,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt R",
-"speed": 12.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -291,7 +291,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"reappear",
-"speed": 14.0
+"speed": 24.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -353,8 +353,10 @@ script = ExtResource("1_wsxgx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_6ho1a")
-animation = &"disappear"
+animation = &"reappear"
 autoplay = "default R"
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0)
