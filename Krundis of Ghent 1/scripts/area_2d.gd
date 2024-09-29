@@ -2,9 +2,10 @@ extends Area2D
 
 @onready var animated_sprite = $AnimatedSprite2D
 
-const MAX_DIST = 200
+const MAX_DIST = 320
 var counter = 0
-var speed = 5
+var speed = 12
+
 
 var direction = Vector2(1, 0)
 func _ready():
