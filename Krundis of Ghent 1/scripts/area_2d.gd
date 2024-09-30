@@ -7,11 +7,13 @@ var counter = 0
 var speed = 12
 
 
-var direction = Vector2(1, 0)
+var direction = Vector2(0, 0)
 func _ready():
-	var fb_vector = Input.get_vector("left", "right", "up", "down")
-	if fb_vector[0] != 0 or fb_vector[1] != 0:
-		direction = fb_vector
+	var game_node = get_parent()
+	var player = game_node.get_node("Player")
+	var xvec = player.last_x_vec
+	var yvec = player.last_y_vec
+	direction = Vector2(xvec, yvec)
 
 @warning_ignore("unused_parameter")
 func _process(delta):

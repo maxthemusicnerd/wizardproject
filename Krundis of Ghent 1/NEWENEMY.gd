@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 5
+const SPEED = 3
 
 func _ready():
 	pass
@@ -23,6 +23,9 @@ func _physics_process(delta):
 
 
 func _on_area_2d_area_entered(area):
+	var game_node = get_parent()
+	var player = game_node.get_node("Player")
 	if area.is_in_group("fireball"):
+		player.kill_counter += 1 
 		self.queue_free()
 	pass # Replace with function body.

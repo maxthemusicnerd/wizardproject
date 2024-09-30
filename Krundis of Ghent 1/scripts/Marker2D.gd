@@ -1,6 +1,6 @@
 extends Marker2D
 
-
+var dog = Vector2(0, 0)
 
 
 
@@ -10,10 +10,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var game_node = get_parent()
+	var player = game_node.get_node("Player")
+	var xvec = player.last_x_vec
+	var yvec = player.last_y_vec
+	dog = Vector2(xvec, yvec)
 	#gets player node and turns it into a variable. It is in the function so that it can be accessed locally
-	var player = get_node("/root/Game/Player")
-	#collect player input every frame. It averages out into a vector. It makes a circle around 0,0
-	var dog = Input.get_vector("left", "right", "up", "down")
 	#these are the points on a grid that are being inputted into
 	var angle_x = dog[0]
 	var angle_y = dog[1]
