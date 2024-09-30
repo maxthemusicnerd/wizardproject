@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-@export var speed = 500
+@export var speed = 300
 
 @onready var animated_sprite = $AnimatedSprite2D
+
+@onready var ace = $ace
+@onready var yes = $yes
 
 func _ready():
 	#instantiate marker reticle thingy and place it in front of the player
@@ -21,6 +24,7 @@ var is_moving = false
 
 var current_animation = ""
 
+#this is the last direction the player chose to face, as opposed to their current vector
 var last_x_vec = 0
 var last_y_vec = 0
 
@@ -29,6 +33,12 @@ var mid_action = false
 
 var invincible = false
 
+
+#JOKE CODE DELETE
+var kill_counter = 0
+
+
+#gets input every frame (not really but its hard to explain)
 func get_input():
 	input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
@@ -70,9 +80,14 @@ func animation_tree():
 		if x_vector == 0 and y_vector == 0:
 			animated_sprite.play("default R")
 			is_moving = false
+			speed = 300
 		else:
 			animated_sprite.play("run R")
 			is_moving = true
+			if speed < 310:
+				speed += 0.2
+			elif speed < 400:
+				speed += 14
 
 
 func _on_animated_sprite_2d_animation_finished():
@@ -113,6 +128,10 @@ func on_hit():
 
 
 func _physics_process(delta):
+	if kill_counter >= 5:
+		yes.play()
+		ace.play()
+		kill_counter = 0
 	if invincible == false:
 		get_input()
 		move_and_slide()
@@ -137,3 +156,7 @@ func _physics_process(delta):
 
 
 
+
+
+func _on_ace_finished():
+	pass
