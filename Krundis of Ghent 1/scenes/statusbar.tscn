@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://br6nkywc6t0si"]
+
+[ext_resource type="Script" path="res://scripts/statusbar.gd" id="1_v0457"]
+[ext_resource type="Texture2D" uid="uid://x82ao8ymnm8m" path="res://assets/HealthbarPart2.png" id="2_rux2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvvyn"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(0, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cg80"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(192, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qubyb"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(240, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxytr"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(48, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vkiu"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(144, 0, 48, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk1m2"]
+atlas = ExtResource("2_rux2a")
+region = Rect2(96, 0, 48, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxunv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvvyn")
+}],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cg80")
+}],
+"loop": true,
+"name": &"four",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qubyb")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxytr")
+}],
+"loop": true,
+"name": &"one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vkiu")
+}],
+"loop": true,
+"name": &"three",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk1m2")
+}],
+"loop": true,
+"name": &"two",
+"speed": 5.0
+}]
+
+[node name="Statusbar" type="CanvasLayer"]
+script = ExtResource("1_v0457")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(166.538, 88.6003)
+scale = Vector2(5.56091, 4.73997)
+sprite_frames = SubResource("SpriteFrames_hxunv")
+animation = &"four"
+autoplay = "full"

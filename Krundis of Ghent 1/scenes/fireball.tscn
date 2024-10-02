@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://tn0ux8ubvoti"]
+[gd_scene load_steps=13 format=3 uid="uid://dkaab568fe0y6"]
 
-[ext_resource type="Script" path="res://scripts/area_2d.gd" id="1_6pqxj"]
+[ext_resource type="Script" path="res://scripts/fireball.gd" id="1_k0gcj"]
 [ext_resource type="Texture2D" uid="uid://coib4pem8ne1v" path="res://assets/fireball brisket.png" id="1_qr3a7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgao0"]
@@ -103,15 +103,17 @@ animations = [{
 radius = 10.0499
 
 [node name="fireball" type="Area2D" groups=["fireball"]]
-script = ExtResource("1_6pqxj")
+script = ExtResource("1_k0gcj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.97746, 2.7403)
 sprite_frames = SubResource("SpriteFrames_paenb")
 animation = &"default_"
 autoplay = "default_"
 frame_progress = 0.746931
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.28941, 2.15318)
 shape = SubResource("CircleShape2D_x3tbl")
 
 [node name="Timer" type="Timer" parent="."]

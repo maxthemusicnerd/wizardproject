@@ -1,19 +1,29 @@
 extends CharacterBody2D
 
 
-const SPEED = 3
+const SPEED = 100
+var player
 
 func _ready():
-	pass
+	var game_node = get_parent()
+	player = game_node.get_node("Player")
+
+
+
+func attack():
+	var direction = player.global_position - position
+	velocity = direction.normalized() * SPEED
 
 func _physics_process(delta):
-	var player = get_node("/root/Game/Player")
-	var p_pos = player.global_position
-	var xdif = p_pos[0] - position[0]
-	var ydif = p_pos[1] - position[1]
-	var mvdist = SPEED / (abs(xdif) + abs(ydif))
-	position[0] += mvdist * xdif
-	position[1] += mvdist * ydif
+	attack()
+	move_and_slide()
+	#var player = get_node("/root/Game/Player")
+	#var p_pos = player.global_position
+	#var xdif = p_pos[0] - position[0]
+	#var ydif = p_pos[1] - position[1]
+	#var mvdist = SPEED / (abs(xdif) + abs(ydif))
+	#position[0] += mvdist * xdif
+	#position[1] += mvdist * ydif
 	#var direction = 400
 	#if direction:
 		#velocity.x = direction * SPEED
