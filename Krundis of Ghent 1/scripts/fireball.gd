@@ -32,9 +32,9 @@ func animation_finished():
 	self.queue_free()
 	
 
-
+#and area.is_in_group("player") == false
 func _on_area_entered(area):
-	if area.is_in_group("fireball") == false:
+	if area.is_in_group("fireball") == false and area.is_in_group("player") == false:
 		counter = MAX_DIST
 		animated_sprite.play("explode")
 	
